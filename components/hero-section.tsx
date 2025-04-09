@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Volume2, VolumeX } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -155,17 +156,21 @@ export default function HeroSection() {
 
       {/* Hero Text */}
       <div className="container relative z-20 flex h-full flex-col items-center justify-center text-center text-white">
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">DJ BagGuy</h1>
-        <p className="mt-4 max-w-3xl text-xl text-gray-200">Bringing the beat to your next event</p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Button size="lg" className="bg-primary hover:bg-primary/90">
-            Book Now
-          </Button>
-          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-            Listen to Mixes
-          </Button>
-        </div>
-      </div>
+  <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">DJ BagGuy</h1>
+  <p className="mt-4 max-w-3xl text-xl text-gray-200">Bringing the beat to your next event</p>
+  <div className="mt-8 flex flex-wrap justify-center gap-4">
+    <Link href="#contact">
+      <Button size="lg" className="bg-primary hover:bg-primary/90">
+        Book Now
+      </Button>
+    </Link>
+    <Link href="#music">
+      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+        Listen to Mixes
+      </Button>
+    </Link>
+  </div>
+</div>
     </section>
   )
 }

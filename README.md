@@ -1,7 +1,7 @@
 <<<<<<< HEAD
-# BagGuy6DjPortfolio
-Professional Dj website where you can book dj for events 
-=======
+# Dj BagGuy Professinal Portfolio 
+ 
+======
 # 🎧 DJ BagGuy – Portfolio & Booking Site
 
 This is the official portfolio and booking site for DJ BagGuy — showcasing upcoming events, music mixes, a photo gallery, and a fully functional contact form for event bookings.

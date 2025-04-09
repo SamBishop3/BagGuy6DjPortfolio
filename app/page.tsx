@@ -246,8 +246,8 @@ export default function Home() {
             {[
               {
                 title: "Culinary Dropout",
-                date: "Thursdays & Friday",
-                time: "7:00 PM - 12:00 AM",
+                date: "May 23, 2025",
+                time: "7:00 PM - 11:00 pM",
                 location: "150 Turtle Creek Boulevard, Dallas,Tx",
                 image:"/current.events/culinary.jpg",
               },
@@ -260,9 +260,10 @@ export default function Home() {
               },
               {
                 title: "Temptation",
-                date: "June 10, 2025",
-                time: "6:00 PM - 12:00 AM",
-                location: "Los Angeles, CA",
+                date: "Tuesdays",
+                time: "10:00 PM - 2:00 AM",
+                location: "3701 S. Cooper St, Arlington, Texas",
+                image:"/current.events/temptation.jpg",
               },
             ].map((event, i) => (
               <Card key={i} className="overflow-hidden">
