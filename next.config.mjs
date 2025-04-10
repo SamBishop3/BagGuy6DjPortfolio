@@ -1,7 +1,7 @@
-let userConfig = {}
+let userConfig = {};
 try {
-  userConfig = await import('./v0-user-next.config')
-  userConfig = userConfig.default || {}
+  userConfig = await import('./v0-user-next.config');
+  userConfig = userConfig.default || {};
 } catch (e) {
   // ignore if user config doesn't exist
 }
@@ -22,10 +22,9 @@ const baseConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-  output: 'standalone', // ✅ Add this here
-}
+  output: 'standalone', // <-- this is important
+};
 
-// Merge baseConfig with userConfig
 const nextConfig = {
   ...baseConfig,
   ...userConfig,
@@ -33,7 +32,6 @@ const nextConfig = {
     ...baseConfig.experimental,
     ...userConfig.experimental,
   },
-}
+};
 
-export default nextConfig
-
+export default nextConfig;
