@@ -22,6 +22,7 @@ const baseConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  output: 'standalone', // ✅ Add this here
 }
 
 // Merge baseConfig with userConfig
@@ -35,3 +36,4 @@ const nextConfig = {
 }
 
 export default nextConfig
+
