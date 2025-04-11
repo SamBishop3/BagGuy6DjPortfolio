@@ -293,7 +293,7 @@ export default function Home() {
                       <span>{event.location}</span>
                     </div>
                   </div>
-                  <Button className="mt-6 w-full hover:bg-primary/80 transition-colors">Get Tickets</Button>
+                  {/* <Button className="mt-6 w-full hover:bg-primary/80 transition-colors">Get Tickets</Button> */}
                 </CardContent>
               </Card>
             ))}
@@ -320,6 +320,7 @@ export default function Home() {
         "gallery10.jpg",
         "gallery11.jpg",
         "gallery12.jpg",
+        
       ].map((img, i) => (
         <div key={i} className="relative aspect-square overflow-hidden rounded-md">
           <Image

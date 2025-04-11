@@ -93,27 +93,32 @@ export default function HeroSection() {
 
   // Toggle mute with better error handling
   const toggleMute = async () => {
-    const video = videoRef.current
-    if (!video) return
-
-    const nextMuted = !isMuted
-    setIsMuted(nextMuted)
-
+    console.log("🧠 Button clicked");
+    const video = videoRef.current;
+    if (!video) {
+      console.warn("⚠️ No video element found");
+      return;
+    }
+  
+    const nextMuted = !isMuted;
+    video.muted = nextMuted;
+    setIsMuted(nextMuted);
+  
     if (!nextMuted) {
       try {
-        // Some browsers require a new play() call after unmuting
-        await video.play()
-        console.log("✅ Unmuted and playing with sound")
+        await video.play();
+        console.log("✅ Playing with sound");
       } catch (err) {
-        console.warn("⚠️ Playback failed after unmuting:", err)
-        // If unmuting fails, revert to muted
-        setIsMuted(true)
-        video.muted = true
-        // Try to play muted
-        video.play().catch((e) => console.warn("Still can't play:", e))
+        console.warn("⚠️ Play failed after unmute:", err);
+        video.muted = true;
+        setIsMuted(true);
+        video.play().catch((e) => console.warn("Still can't play:", e));
       }
     }
-  }
+  };
+  
+  
+  
 
   return (
     <section className="relative h-[80vh] w-full overflow-hidden">
@@ -145,14 +150,22 @@ export default function HeroSection() {
 
       {/* Mute/Unmute Button */}
       <Button
-        onClick={toggleMute}
-        variant="outline"
-        size="icon"
-        className="absolute bottom-4 right-4 z-20 bg-background/20 backdrop-blur-sm hover:bg-background/40 border-white/20"
-      >
-        {isMuted ? <VolumeX className="h-5 w-5 text-white" /> : <Volume2 className="h-5 w-5 text-white" />}
-        <span className="sr-only">{isMuted ? "Unmute" : "Mute"} background video</span>
-      </Button>
+    
+      onClick={toggleMute}
+      variant="outline"
+      size="icon"
+      className="absolute bottom-4 right-4 z-[9999] h-16 w-16 border-4 border-white/40 bg-background/20 backdrop-blur-sm hover:bg-background/40"
+    >
+      {isMuted ? (
+        <VolumeX className="h-8 w-8 text-white" />
+      ) : (
+        <Volume2 className="h-8 w-8 text-white" />
+      )}
+      <span className="sr-only">{isMuted ? "Unmute" : "Mute"} background video</span>
+    </Button>
+    
+
+
 
       {/* Hero Text */}
       <div className="container relative z-20 flex h-full flex-col items-center justify-center text-center text-white">
