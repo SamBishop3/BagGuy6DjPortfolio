@@ -94,13 +94,12 @@ export default function Home() {
             <div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">About DJ BagGuy</h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                With over a decade of experience, DJ BagGuy has been electrifying dance floors across the country.
-                Specializing in house, techno, and EDM, his unique style and energy create unforgettable experiences.
+              DJ BagGuy is a Dallas-based DJ with over a decade of experience lighting up stages and creating unforgettable moments.
+              A founding member of Crush Nation, he began his journey as an artist and quickly evolved into a skilled DJ known for his versatility and energy. 
               </p>
               <p className="mt-4 text-lg text-muted-foreground">
-                From intimate club settings to massive festival stages, DJ BagGuy adapts his sound to create the perfect
-                atmosphere for any event. His technical skills and musical knowledge allow him to read the crowd and
-                deliver exactly what they need.
+              His sets blend hip-hop, pop, R&B, EDM, and house music, creating a sound that connects with any crowd. From underground parties to major festival stages, DJ BagGuy brings the same passion and precision every time. 
+              He’s all about reading the room, keeping the energy up, and making sure every performance hits the right vibe.
               </p>
               <div className="mt-8 flex space-x-4">
                 <Link href="https://www.instagram.com/_BagGuy_/" target="_blank" rel="noopener noreferrer">
@@ -158,16 +157,16 @@ export default function Home() {
                     className="object-cover object-top"
                   />
                 </div>
-                <h3 className="text-xl font-bold">Hip-Hop Mix {i}</h3>
+                <h3 className="text-xl font-bold">COMING SOON! {i}</h3>
                 <p className="text-sm text-muted-foreground mt-2">
-                  High-energy hip-hop tracks straight from the streets to the speakers.
+                  Hip-Hop Mix
                 </p>
-                <div className="mt-4">
+                {/* <div className="mt-4">
                   <audio controls className="w-full" aria-label={`Hip-Hop Mix ${i}`}>
                     <source src={`/audio/hiphop${i}.mp3`} type="audio/mpeg" />
                     Your browser does not support the audio element.
                   </audio>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
           ))}
@@ -188,16 +187,16 @@ export default function Home() {
                     className="object-cover object-center"
                   />
                 </div>
-                <h3 className="text-xl font-bold">Pop Vibes Mix {i}</h3>
+                <h3 className="text-xl font-bold">COMING SOON! {i}</h3>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Catchy pop rhythms that make you want to dance and sing along.
+                  Pop Mix
                 </p>
-                <div className="mt-4">
+                {/* <div className="mt-4">
                   <audio controls className="w-full" aria-label={`Pop Mix ${i}`}>
                     <source src={`/audio/pop${i}.mp3`} type="audio/mpeg" />
                     Your browser does not support the audio element.
                   </audio>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
           ))}
@@ -218,16 +217,16 @@ export default function Home() {
                     className="object-cover object-center"
                   />
                 </div>
-                <h3 className="text-xl font-bold">Smooth R&B Mix {i}</h3>
+                <h3 className="text-xl font-bold">COMING SOON! {i}</h3>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Smooth and soulful R&B jams for the late-night vibe.
+                  RnB Mix
                 </p>
-                <div className="mt-4">
+                {/* <div className="mt-4">
                   <audio controls className="w-full" aria-label={`R&B Mix ${i}`}>
                     <source src={`/audio/rnb${i}.mp3`} type="audio/mpeg" />
                     Your browser does not support the audio element.
                   </audio>
-                </div>
+                </div> */}
               </CardContent>
             </Card>
           ))}
