@@ -12,6 +12,8 @@ import HeroSection from "@/components/hero-section"
 
 // ✅ This is what you're missing:
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // ✅ State for mobile toggle
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -32,7 +34,6 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col">
-
       {/* Navigation */}
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
@@ -40,24 +41,24 @@ export default function Home() {
             <Music className="h-6 w-6" />
             <span className="text-xl font-bold">DJ BagGuy</span>
           </Link>
+
+          {/* Desktop Nav */}
           <nav className="hidden md:flex gap-6">
-            <Link href="#about" className="text-sm font-medium transition-colors hover:text-primary">
-              About
-            </Link>
-            <Link href="#music" className="text-sm font-medium transition-colors hover:text-primary">
-              Music
-            </Link>
-            <Link href="#events" className="text-sm font-medium transition-colors hover:text-primary">
-              Events
-            </Link>
-            <Link href="#gallery" className="text-sm font-medium transition-colors hover:text-primary">
-              Gallery
-            </Link>
-            <Link href="#contact" className="text-sm font-medium transition-colors hover:text-primary">
-              Contact
-            </Link>
+            <Link href="#about" className="text-sm font-medium transition-colors hover:text-primary">About</Link>
+            <Link href="#music" className="text-sm font-medium transition-colors hover:text-primary">Music</Link>
+            <Link href="#events" className="text-sm font-medium transition-colors hover:text-primary">Events</Link>
+            <Link href="#gallery" className="text-sm font-medium transition-colors hover:text-primary">Gallery</Link>
+            <Link href="#contact" className="text-sm font-medium transition-colors hover:text-primary">Contact</Link>
           </nav>
-          <Button variant="outline" size="icon" className="md:hidden" aria-label="Toggle menu">
+
+          {/* Mobile Toggle Button */}
+          <Button
+            variant="outline"
+            size="icon"
+            className="md:hidden"
+            aria-label="Toggle menu"
+            onClick={() => setIsMenuOpen(!isMenuOpen)} // ✅ This was missing
+          >
             <span className="sr-only">Toggle menu</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,6 +78,17 @@ export default function Home() {
             </svg>
           </Button>
         </div>
+
+        {/* ✅ Mobile Nav */}
+        {isMenuOpen && (
+          <nav className="md:hidden bg-background px-6 py-4 flex flex-col gap-4">
+            <Link href="#about" className="text-sm font-medium hover:text-primary" onClick={() => setIsMenuOpen(false)}>About</Link>
+            <Link href="#music" className="text-sm font-medium hover:text-primary" onClick={() => setIsMenuOpen(false)}>Music</Link>
+            <Link href="#events" className="text-sm font-medium hover:text-primary" onClick={() => setIsMenuOpen(false)}>Events</Link>
+            <Link href="#gallery" className="text-sm font-medium hover:text-primary" onClick={() => setIsMenuOpen(false)}>Gallery</Link>
+            <Link href="#contact" className="text-sm font-medium hover:text-primary" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+          </nav>
+        )}
       </header>
 
       {/* Hero Section with Video Background */}
