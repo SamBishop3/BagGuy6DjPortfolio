@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, Instagram, Music, Mail, MapPin } from "lucide-react"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import {sendEmail } from "../app/api/email/route";
 import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
@@ -12,17 +12,24 @@ import HeroSection from "@/components/hero-section"
 
 // ✅ This is what you're missing:
 export default function Home() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // ✅ State for mobile toggle
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-
+  
     try {
       const result = await sendEmail(formData);
       if (result.success) {
         alert("Your booking request has been sent successfully!");
-        event.currentTarget.reset();
+  
+        // 🔍 DEBUG + FIX
+        if (formRef.current) {
+          console.log("✅ formRef.current found:", formRef.current);
+          formRef.current.reset(); // ✅ safely reset
+        } else {
+          console.warn("❌ formRef.current is null");
+        }
       } else {
         alert(`Error: ${result.error}`);
       }
@@ -31,6 +38,25 @@ export default function Home() {
       alert("There was an error submitting your form. Please try again.");
     }
   };
+  
+
+  // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   const formData = new FormData(event.currentTarget);
+
+  //   try {
+  //     const result = await sendEmail(formData);
+  //     if (result.success) {
+  //       alert("Your booking request has been sent successfully!");
+  //       event.currentTarget.reset();
+  //     } else {
+  //       alert(`Error: ${result.error}`);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error during form submission:", error);
+  //     alert("There was an error submitting your form. Please try again.");
+  //   }
+  // };
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -393,7 +419,7 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <label htmlFor="name" className="text-sm font-medium">
