@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# Dj BagGuy Professinal Portfolio 
+# Dj BagGuy Professional Portfolio 
  
 ======
 # 🎧 DJ BagGuy – Portfolio & Booking Site
